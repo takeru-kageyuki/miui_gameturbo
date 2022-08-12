@@ -1,0 +1,8 @@
+# Enable MIUI Performance Mode
+persist.sys.power.default.powermode=1
+
+# Enable MIUI Optimized Charging
+persist.vendor.night.charge=true
+
+# Disable MIUI Low RAM Flag
+ro.config.low_ram.threshold_gb=false
