@@ -24,9 +24,10 @@ last_setup() {
         
         settings put global GPUTUNER_SWITCH true
         
+        pm clear com.miui.securityadd &>/dev/null
         pm clear com.miui.securitycenter &>/dev/null
         pm clear com.miui.powerkeeper &>/dev/null
     fi
 }
 
-last_setup
+last_setup &
