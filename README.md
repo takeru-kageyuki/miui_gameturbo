@@ -6,23 +6,21 @@
     <a href="https://github.com/takeru-kageyuki/miui_gameturbo/releases"><img src="https://img.shields.io/github/downloads/takeru-kageyuki/miui_gameturbo/total?color=brightgreen" alt="Downloads"></a>
 </div>
 <p>:herb: A module that allows your device to unlock unsupported features like Game Turbo, Sidebar, Optimized Charging and many other similar features.</p>
-<p>:fallen_leaf: This MOD uses Security Center version 6.2.1-220414.0.1 (China) and System Services Plugin version 9.11.06-220418.0.1 (Global) for several reasons, but I'm lazy to explain :'v</p>
+<p>:fallen_leaf: This MOD uses Security Center version 6.2.3-220622.1.2 (Global) and System Services Plugin version 9.11.06-220418.0.1 (China).</p>
 <p><strong>Changes that I have applied:</strong></p>
 <ul>
-    <li>Added support for armeabi-v7a (32-bit devices)</li>
-    <li>Added Sidebar option in Security Settings</li>
-    <li>Removed the Security Warning Timer (10s)</li>
-    <li>Unlocked the Game Turbo for unsupported devices</li>
-    <li>Unlocked the New UI for Game Turbo</li>
-    <li>Unlocked the Games Banner for Game Turbo</li>
-    <li>Unlocked the GPU Settings for several devices</li>
-    <li>Unlocked the Sidebar for unsupported devices</li>
-    <li>Unlocked the Video Toolbox for unsupported devices</li>
-    <li>Unlocked the Auto Refresh Rate in Video Toolbox</li>
-    <li>Unlocked the Video Filters in Video Toolbox</li>
-    <li>Unlocked the Audio Options in Video Toolbox</li>
-    <li>Unlocked the Optimized Charging for several devices</li>
-    <li>Etc, I'm too lazy to type it :moyai:</li>
+    <li>Added Support for armeabi-v7a (32-bit devices)</li>
+    <li>Added Sidebar option in security settings</li>
+    <li>Added Game Turbo for unsupported devices</li>
+    <li>Added GPU Settings for several devices</li>
+    <li>Added Sidebar for unsupported devices</li>
+    <li>Added Video Toolbox for unsupported devices</li>
+    <li>Added Dynamic FPS in Video Toolbox</li>
+    <li>Added Video Filters in Video Toolbox</li>
+    <li>Added Audio Options in Video Toolbox</li>
+    <li>Added Optimized Charging for several devices</li>
+    <li>Removed Security Warning Timer</li>
+    <li>Etc, I'm too lazy to type them :moyai:</li>
 </ul>
 <h2>Requirements:</h2>
 <ul>
@@ -32,6 +30,7 @@
 </ul>
 <h2>Notes:</h2>
 <ul>
+    <li>Recommended using MIUI 12.5+</li>
     <li>If some features doesn't work or doesn't appear, it means your device really doesn't support it.</li>
 </ul>
 <hr>
