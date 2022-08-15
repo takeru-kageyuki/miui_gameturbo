@@ -1,7 +1,7 @@
 id=miui_gameturbo
 name=MIUI GameTurbo
-version=v1.0-Stable
-versionCode=1
+version=v1.1-Stable
+versionCode=2
 author=Taka🌿
 description=This module will unlock features like Game Turbo, Sidebar, Optimized Charging and many other features for unsupported devices.
 updateJson=https://github.com/takeru-kageyuki/miui_gameturbo/raw/main/update.json
