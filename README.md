@@ -19,7 +19,7 @@
     <li>Added Video Filters in Video Toolbox</li>
     <li>Added Audio Options in Video Toolbox</li>
     <li>Added Optimized Charging for several devices</li>
-    <li>Removed Security Warning Timer</li>
+    <li>Removing Security Warning Timer</li>
     <li>Etc, I'm too lazy to type them :moyai:</li>
 </ul>
 <h2>Requirements:</h2>
