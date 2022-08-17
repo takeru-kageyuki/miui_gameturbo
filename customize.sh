@@ -14,6 +14,9 @@ module_descriptions() {
     ui_print ""
     sleep 2
     ui_print "Notes:"
+    ui_print " • It is recommended to use MIUI 12.5+, as this"
+    ui_print " • Module doesn't work in severals MIUI 12."
+    sleep 2
     ui_print " • If some features doesn't work or doesn't appear,"
     ui_print " • It means your device really doesn't support it."
     ui_print ""
@@ -43,13 +46,13 @@ install_module() {
     sleep 2
 }
 
-if [ $API -lt 24 ]; then
+if [ $API -lt 28 ]; then
     ui_print "*********************************************************"
-    ui_print " Requires API 24+ (Android 7.0+) to install this module! "
+    ui_print " Requires API 28+ (Android 9.0+) to install this module! "
     abort "*********************************************************"
-elif [ $MAGISK_VER_CODE -lt 23000 ]; then
+elif [ $MAGISK_VER_CODE -lt 24000 ]; then
     ui_print "*******************************"
-    ui_print " Please install Magisk v23.0+! "
+    ui_print " Please install Magisk v24.0+! "
     abort "*******************************"
 elif ! $BOOTMODE; then
     ui_print "********************************"
@@ -59,9 +62,9 @@ elif [ -z $(grep_get_prop ro.miui.ui.version.name) ]; then
     ui_print "****************************************"
     ui_print " This module is only for MIUI firmware! "
     abort "****************************************"
-elif [ $(grep_get_prop ro.miui.ui.version.code) -lt 9 ]; then
+elif [ $(grep_get_prop ro.miui.ui.version.code) -lt 10 ]; then
     ui_print "*******************************************"
-    ui_print " Requires MIUI 11+ to install this module! "
+    ui_print " Requires MIUI 12+ to install this module! "
     abort "*******************************************"
 else
     set -x
