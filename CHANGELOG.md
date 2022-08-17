@@ -1,5 +1,5 @@
 ## Changelog
 
-- Security center updated to global version
-- Improved some scripts logic
+- System service plugin updated to global version
+- Updating installation requirements
 - Fixed some minor bugs
