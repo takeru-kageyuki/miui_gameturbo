@@ -6,7 +6,7 @@
     <a href="https://github.com/takeru-kageyuki/miui_gameturbo/releases"><img src="https://img.shields.io/github/downloads/takeru-kageyuki/miui_gameturbo/total?color=brightgreen" alt="Downloads"></a>
 </div>
 <p>:herb: A module that allows your device to unlock unsupported features like Game Turbo, Sidebar, Optimized Charging and many other similar features.</p>
-<p>:fallen_leaf: This MOD uses Security Center version 6.2.3-220622.1.2 (Global) and System Services Plugin version 9.11.06-220418.0.1 (China).</p>
+<p>:fallen_leaf: This MOD uses Security Center version 6.2.3-220622.1.2 (Global) and System Services Plugin version 9.11.06-220418.0.1 (Global).</p>
 <p><strong>Changes that I have applied:</strong></p>
 <ul>
     <li>Added Support for armeabi-v7a (32-bit devices)</li>
@@ -24,13 +24,13 @@
 </ul>
 <h2>Requirements:</h2>
 <ul>
-    <li>Android 7.0+</li>
-    <li>MIUI 11+</li>
-    <li>Magisk v23.0+</li>
+    <li>Android 9.0+</li>
+    <li>MIUI 12+</li>
+    <li>Magisk v24.0+</li>
 </ul>
 <h2>Notes:</h2>
 <ul>
-    <li>Recommended using MIUI 12.5+</li>
+    <li>It is recommended to use MIUI 12.5+, as this module doesn't work in severals MIUI 12.</li>
     <li>If some features doesn't work or doesn't appear, it means your device really doesn't support it.</li>
 </ul>
 <hr>
