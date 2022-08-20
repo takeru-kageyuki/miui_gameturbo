@@ -13,28 +13,30 @@ boot_completed() {
 }
 
 libadd() {
-    local libadd_cache=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$libadd_cache* -delete &>/dev/null
-    find /data/system/package_cache/*/$libadd_cache* -delete &>/dev/null
+    local caches=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
+    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
     
-    local libadd_package=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$libadd_package* -delete &>/dev/null
+    local trash=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
 }
 
 libmain() {
-    local libmain_cache=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$libmain_cache* -delete &>/dev/null
-    find /data/system/package_cache/*/$libmain_cache* -delete &>/dev/null
+    local caches=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
+    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
     
-    local libmain_package=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$libmain_package* -delete &>/dev/null
+    local trash=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
 }
 
-lib_cleanup() {
+libs_cleanup() {
     libadd
     libmain
     
     boot_completed
+    
+    rm -rf /cache/miui_gameturbo
     
     settings delete global GPUTUNER_SWITCH &>/dev/null
     
@@ -43,4 +45,4 @@ lib_cleanup() {
     pm clear com.miui.powerkeeper &>/dev/null
 }
 
-lib_cleanup &
+libs_cleanup &
