@@ -1,5 +1,6 @@
 ## Changelog
 
-- System service plugin updated to global version
-- Updating installation requirements
+- Added Automated Tasks for unsupported devices
+- Improved some scripts logic
+- Optimized several codes
 - Fixed some minor bugs
