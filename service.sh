@@ -15,12 +15,11 @@ boot_completed() {
 last_setup() {
     boot_completed
     
-    local update=${0%/*}/.installed
-    if [ ! -f $update ]; then
+    local update=/cache/miui_gameturbo
+    if [ ! -d $update ]; then
         . /data/adb/magisk/util_functions.sh
         
-        mktouch $update
-        set_perm $update 0 0 0644
+        mktouch $update/.installed
         
         settings put global GPUTUNER_SWITCH true
         
