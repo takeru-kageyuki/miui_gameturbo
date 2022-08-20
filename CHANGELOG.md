@@ -2,5 +2,5 @@
 
 - Added Automated Tasks for unsupported devices
 - Improved some scripts logic
-- Optimized several codes
+- Optimizing several codes
 - Fixed some minor bugs
