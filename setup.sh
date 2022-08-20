@@ -1,51 +1,51 @@
 #!/system/bin/sh
 
 libadd() {
-    local libadd_location=$(pm path com.miui.securityadd | cut -d ":" -f 2 | cut -d "/" -f 2)
-    local libadd_version=$(dumpsys package com.miui.securityadd | grep versionCode | cut -d "=" -f 2 | cut -d " " -f 1)
-    if [ $libadd_location != system ]; then
+    local path=$(pm path com.miui.securityadd | cut -d ":" -f 2 | cut -d "/" -f 2)
+    local version=$(dumpsys package com.miui.securityadd | grep versionCode | cut -d "=" -f 2 | cut -d " " -f 1)
+    if [ $path != system ]; then
         pm clear com.miui.securityadd &>/dev/null
         pm uninstall com.miui.securityadd &>/dev/null
-    elif [ $libadd_version != 91106 ]; then
+    elif [ $version != 91106 ]; then
         pm clear com.miui.securityadd &>/dev/null
     fi
     
-    local libadd_dir=$(pm path com.miui.securityadd | cut -d ":" -f 2 | sed "s:/[^/]*$::")
-    mkdir -p $MODPATH$libadd_dir
+    local dir=$(pm path com.miui.securityadd | cut -d ":" -f 2 | sed "s:/[^/]*$::")
+    mkdir -p $MODPATH$dir
     
-    local libadd_path=$(pm path com.miui.securityadd | cut -d ":" -f 2)
-    mv $MODPATH/lib/libadd.so $MODPATH$libadd_path
+    local dest=$(pm path com.miui.securityadd | cut -d ":" -f 2)
+    mv $MODPATH/lib/libadd.so $MODPATH$dest
     
-    local libadd_cache=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$libadd_cache* -delete &>/dev/null
-    find /data/system/package_cache/*/$libadd_cache* -delete &>/dev/null
+    local caches=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
+    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
     
-    local libadd_package=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$libadd_package* -delete &>/dev/null
+    local trash=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
 }
 
 libmain() {
-    local libmain_location=$(pm path com.miui.securitycenter | cut -d ":" -f 2 | cut -d "/" -f 2)
-    local libmain_version=$(dumpsys package com.miui.securitycenter | grep versionCode | cut -d "=" -f 2 | cut -d " " -f 1)
-    if [ $libmain_location != system ]; then
+    local path=$(pm path com.miui.securitycenter | cut -d ":" -f 2 | cut -d "/" -f 2)
+    local version=$(dumpsys package com.miui.securitycenter | grep versionCode | cut -d "=" -f 2 | cut -d " " -f 1)
+    if [ $path != system ]; then
         pm clear com.miui.securitycenter &>/dev/null
         pm uninstall com.miui.securitycenter &>/dev/null
-    elif [ $libmain_version != 40000623 ]; then
+    elif [ $version != 40000623 ]; then
         pm clear com.miui.securitycenter &>/dev/null
     fi
     
-    local libmain_dir=$(pm path com.miui.securitycenter | cut -d ":" -f 2 | sed "s:/[^/]*$::")
-    mkdir -p $MODPATH$libmain_dir
+    local dir=$(pm path com.miui.securitycenter | cut -d ":" -f 2 | sed "s:/[^/]*$::")
+    mkdir -p $MODPATH$dir
     
-    local libmain_path=$(pm path com.miui.securitycenter | cut -d ":" -f 2)
-    mv $MODPATH/lib/libmain.so $MODPATH$libmain_path
+    local dest=$(pm path com.miui.securitycenter | cut -d ":" -f 2)
+    mv $MODPATH/lib/libmain.so $MODPATH$dest
     
-    local libmain_cache=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$libmain_cache* -delete &>/dev/null
-    find /data/system/package_cache/*/$libmain_cache* -delete &>/dev/null
+    local caches=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
+    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
     
-    local libmain_package=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$libmain_package* -delete &>/dev/null
+    local trash=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
 }
 
-install_lib() { libadd; libmain; }
+install_libs() { libadd; libmain; }
