@@ -6,7 +6,7 @@ module_descriptions() {
     ui_print "MIUI GameTurbo (Magisk Module)"
     ui_print " • A module that allows your device to unlock"
     ui_print " • Unsupported features like Game Turbo, Sidebar,"
-    ui_print " • Optimized Charging and many other similar features."
+    ui_print " • Automated Tasks and many other similar features."
     ui_print ""
     sleep 2
     ui_print "Telegram Group:"
@@ -14,11 +14,12 @@ module_descriptions() {
     ui_print ""
     sleep 2
     ui_print "Notes:"
-    ui_print " • It is recommended to use MIUI 12.5+, as this"
-    ui_print " • Module doesn't work in severals MIUI 12."
+    ui_print " • It is recommended to use MIUI 12.5+, as"
+    ui_print " • This module doesn't work in some MIUI 12."
+    ui_print ""
     sleep 2
     ui_print " • If some features doesn't work or doesn't appear,"
-    ui_print " • It means your device really doesn't support it."
+    ui_print " • It means your device really doesn't support them."
     ui_print ""
     sleep 2
 }
@@ -37,7 +38,7 @@ install_module() {
     sleep 2
     ui_print "- Settings module"
     . $MODPATH/setup.sh
-    install_lib
+    install_libs
     rmdir $MODPATH/lib
     rm $MODPATH/setup.sh
     sleep 2
