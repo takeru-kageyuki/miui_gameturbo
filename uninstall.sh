@@ -13,20 +13,24 @@ boot_completed() {
 }
 
 libadd() {
-    local caches=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::")
+    local libadd=com.miui.securityadd
+    
+    local caches=$(pm path $libadd | cut -d "." -f 1 | sed "s:.*/::")
     find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
     find /data/system/package_cache/*/*$caches* -delete &>/dev/null
     
-    local trash=$(pm path com.miui.securityadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
+    local trash=$(pm path $libadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
     find /data/system/package_cache/*/*$trash* -delete &>/dev/null
 }
 
 libmain() {
-    local caches=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::")
+    local libmain=com.miui.securitycenter
+    
+    local caches=$(pm path $libmain | cut -d "." -f 1 | sed "s:.*/::")
     find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
     find /data/system/package_cache/*/*$caches* -delete &>/dev/null
     
-    local trash=$(pm path com.miui.securitycenter | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
+    local trash=$(pm path $libmain | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
     find /data/system/package_cache/*/*$trash* -delete &>/dev/null
 }
 
