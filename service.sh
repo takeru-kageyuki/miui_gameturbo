@@ -15,17 +15,17 @@ boot_completed() {
 last_setup() {
     boot_completed
     
-    local update=/cache/miui_gameturbo
-    if [ ! -d $update ]; then
-        . /data/adb/magisk/util_functions.sh
-        
-        mktouch $update/.installed
-        
+    local addon=/cache/miui_gameturbo
+    if [ ! -d $addon ]; then
         settings put global GPUTUNER_SWITCH true
         
         pm clear com.miui.securityadd &>/dev/null
         pm clear com.miui.securitycenter &>/dev/null
         pm clear com.miui.powerkeeper &>/dev/null
+        
+        source /data/adb/magisk/util_functions.sh
+        
+        mktouch $addon/.installed
     fi
 }
 
