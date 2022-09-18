@@ -1,55 +1,51 @@
 #!/system/bin/sh
 
 libadd() {
-    local libadd=com.miui.securityadd
+    local target=com.miui.securityadd
     
-    local path=$(pm path $libadd | cut -d "/" -f 2)
-    local version=$(dumpsys package $libadd | grep versionCode | sed "s/versionCode=//g" | cut -d " " -f 5)
-    if [ $path != system ]; then
-        pm clear $libadd &>/dev/null
-        pm uninstall $libadd &>/dev/null
-    elif [ $version != 91106 ]; then
-        pm clear $libadd &>/dev/null
+    if [ ! -d /cache/miui_gameturbo ]; then
+        pm clear $target &>/dev/null
+        
+        local installed=$(pm path $target | cut -d "/" -f 2)
+        [ $installed != system ] && pm uninstall $target &>/dev/null
     fi
     
-    local dir=$(pm path $libadd | cut -d ":" -f 2 | sed "s:/[^/]*$::")
-    mkdir -p $MODPATH$dir
+    local dir1=$(pm path $target | cut -d ":" -f 2 | sed "s:/[^/]*$::")
+    mkdir -p $MODPATH$dir1
     
-    local dest=$(pm path $libadd | sed "s/package://g")
-    mv $MODPATH/lib/libadd.so $MODPATH$dest
+    local dir2=$(pm path $target | sed "s/package://g")
+    mv $MODPATH/lib/libadd.so $MODPATH$dir2
     
-    local caches=$(pm path $libadd | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
-    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
+    local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$cache1* -delete &>/dev/null
+    find /data/system/package_cache/*/*$cache1* -delete &>/dev/null
     
-    local trash=$(pm path $libadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
+    local cache2=$(echo $cache1 | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$cache2* -delete &>/dev/null
 }
 
 libmain() {
-    local libmain=com.miui.securitycenter
+    local target=com.miui.securitycenter
     
-    local path=$(pm path $libmain | cut -d "/" -f 2)
-    local version=$(dumpsys package $libmain | grep versionCode | sed "s/versionCode=//g" | cut -d " " -f 5)
-    if [ $path != system ]; then
-        pm clear $libmain &>/dev/null
-        pm uninstall $libmain &>/dev/null
-    elif [ $version != 40000702 ]; then
-        pm clear $libmain &>/dev/null
+    if [ ! -d /cache/miui_gameturbo ]; then
+        pm clear $target &>/dev/null
+        
+        local installed=$(pm path $target | cut -d "/" -f 2)
+        [ $installed != system ] && pm uninstall $target &>/dev/null
     fi
     
-    local dir=$(pm path $libmain | cut -d ":" -f 2 | sed "s:/[^/]*$::")
-    mkdir -p $MODPATH$dir
+    local dir1=$(pm path $target | cut -d ":" -f 2 | sed "s:/[^/]*$::")
+    mkdir -p $MODPATH$dir1
     
-    local dest=$(pm path $libmain | sed "s/package://g")
-    mv $MODPATH/lib/libmain.so $MODPATH$dest
+    local dir2=$(pm path $target | sed "s/package://g")
+    mv $MODPATH/lib/libmain.so $MODPATH$dir2
     
-    local caches=$(pm path $libmain | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
-    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
+    local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$cache1* -delete &>/dev/null
+    find /data/system/package_cache/*/*$cache1* -delete &>/dev/null
     
-    local trash=$(pm path $libmain | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
+    local cache2=$(echo $cache1 | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$cache2* -delete &>/dev/null
 }
 
-install_libs() { libadd; libmain; }
+install_lib() { libadd; libmain; }
