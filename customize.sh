@@ -5,8 +5,8 @@ SKIPUNZIP=1
 module_descriptions() {
     ui_print "MIUI GameTurbo (Magisk Module)"
     ui_print " • A module that allows your device to unlock"
-    ui_print " • Unsupported features like Game Turbo, Sidebar,"
-    ui_print " • Automated Tasks and many other similar features."
+    ui_print " • Unsupported features, such as Game Turbo, Sidebar,"
+    ui_print " • Automated Tasks, and many other similar features."
     ui_print ""
     sleep 2
     ui_print "Telegram Group:"
@@ -18,8 +18,8 @@ module_descriptions() {
     ui_print " • This module doesn't work in some MIUI 12."
     ui_print ""
     sleep 2
-    ui_print " • If some features doesn't work or doesn't appear,"
-    ui_print " • It means your device really doesn't support them."
+    ui_print " • If some features doesn't work or doesn't appear, it"
+    ui_print " • Means that your device really doesn't support them."
     ui_print ""
     sleep 2
 }
@@ -37,8 +37,8 @@ install_module() {
     unzip -o "$ZIPFILE" "uninstall.sh" -d $MODPATH >&2
     sleep 2
     ui_print "- Settings module"
-    . $MODPATH/setup.sh
-    install_libs
+    source $MODPATH/setup.sh
+    install_lib
     rmdir $MODPATH/lib
     rm $MODPATH/setup.sh
     sleep 2
