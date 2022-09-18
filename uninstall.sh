@@ -13,34 +13,34 @@ boot_completed() {
 }
 
 libadd() {
-    local libadd=com.miui.securityadd
+    local target=com.miui.securityadd
     
-    local caches=$(pm path $libadd | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
-    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
+    local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$cache1* -delete &>/dev/null
+    find /data/system/package_cache/*/*$cache1* -delete &>/dev/null
     
-    local trash=$(pm path $libadd | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
+    local cache2=$(echo $cache1 | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$cache2* -delete &>/dev/null
 }
 
 libmain() {
-    local libmain=com.miui.securitycenter
+    local target=com.miui.securitycenter
     
-    local caches=$(pm path $libmain | cut -d "." -f 1 | sed "s:.*/::")
-    find /data/dalvik-cache/*/*$caches* -delete &>/dev/null
-    find /data/system/package_cache/*/*$caches* -delete &>/dev/null
+    local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
+    find /data/dalvik-cache/*/*$cache1* -delete &>/dev/null
+    find /data/system/package_cache/*/*$cache1* -delete &>/dev/null
     
-    local trash=$(pm path $libmain | cut -d "." -f 1 | sed "s:.*/::" | tr "[:upper:]" "[:lower:]")
-    find /data/system/package_cache/*/*$trash* -delete &>/dev/null
+    local cache2=$(echo $cache1 | tr "[:upper:]" "[:lower:]")
+    find /data/system/package_cache/*/*$cache2* -delete &>/dev/null
 }
 
-libs_cleanup() {
+uninstall_lib() {
     libadd
     libmain
     
-    boot_completed
-    
     rm -rf /cache/miui_gameturbo
+    
+    boot_completed
     
     settings delete global GPUTUNER_SWITCH &>/dev/null
     
@@ -49,4 +49,4 @@ libs_cleanup() {
     pm clear com.miui.powerkeeper &>/dev/null
 }
 
-libs_cleanup &
+uninstall_lib &
