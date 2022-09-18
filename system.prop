@@ -1,3 +1,7 @@
+#-------------------------------
+# ADDITIONAL ANDROID PROPERTIES
+#-------------------------------
+
 # Enable MIUI Performance Mode
 persist.sys.power.default.powermode=1
 
