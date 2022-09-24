@@ -6,7 +6,7 @@
     <a href="https://github.com/takeru-kageyuki/miui_gameturbo/releases"><img src="https://img.shields.io/github/downloads/takeru-kageyuki/miui_gameturbo/total?color=brightgreen" alt="Downloads"></a>
 </div>
 <p>:herb: A module that allows your device to unlock unsupported features, such as Game Turbo, Sidebar, Video Toolbox, Automated Tasks, Optimized Charging, and many other similar features.</p>
-<p>:fallen_leaf: This MOD uses Security Center version 7.0.4-220913.1.2 (Global) and System Services Plugin version 9.11.17-220825.1.1 (Global).</p>
+<p>:fallen_leaf: This MOD uses the global version of the Security Center and System Service Plugin.</p>
 <p><strong>Changes that I have applied:</strong></p>
 <ul>
     <li>Added support for armeabi-v7a (32-bit devices)</li>
