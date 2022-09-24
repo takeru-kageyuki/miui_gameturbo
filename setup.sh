@@ -3,11 +3,10 @@
 libadd() {
     local target=com.miui.securityadd
     
-    if [ ! -d /cache/miui_gameturbo ]; then
+    local installed=$(pm path $target | cut -d "/" -f 2)
+    if [ $installed != system ]; then
         pm clear $target &>/dev/null
-        
-        local installed=$(pm path $target | cut -d "/" -f 2)
-        [ $installed != system ] && pm uninstall $target &>/dev/null
+        pm uninstall $target &>/dev/null
     fi
     
     local dir1=$(pm path $target | cut -d ":" -f 2 | sed "s:/[^/]*$::")
@@ -27,11 +26,10 @@ libadd() {
 libmain() {
     local target=com.miui.securitycenter
     
-    if [ ! -d /cache/miui_gameturbo ]; then
+    local installed=$(pm path $target | cut -d "/" -f 2)
+    if [ $installed != system ]; then
         pm clear $target &>/dev/null
-        
-        local installed=$(pm path $target | cut -d "/" -f 2)
-        [ $installed != system ] && pm uninstall $target &>/dev/null
+        pm uninstall $target &>/dev/null
     fi
     
     local dir1=$(pm path $target | cut -d ":" -f 2 | sed "s:/[^/]*$::")
