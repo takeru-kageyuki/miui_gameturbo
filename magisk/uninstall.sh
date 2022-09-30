@@ -17,7 +17,7 @@ libadd() {
     
     local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
     find /data/dalvik-cache/*/*$cache1* -delete &>/dev/null
-    find /data/system/package_cache/*/*$cache1* -delete &>/dev/null
+    find /data/system/package_cache/*/$cache1* -delete &>/dev/null
     
     local cache2=$(echo $cache1 | tr "[:upper:]" "[:lower:]")
     find /data/system/package_cache/*/*$cache2* -delete &>/dev/null
@@ -28,7 +28,7 @@ libmain() {
     
     local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
     find /data/dalvik-cache/*/*$cache1* -delete &>/dev/null
-    find /data/system/package_cache/*/*$cache1* -delete &>/dev/null
+    find /data/system/package_cache/*/$cache1* -delete &>/dev/null
     
     local cache2=$(echo $cache1 | tr "[:upper:]" "[:lower:]")
     find /data/system/package_cache/*/*$cache2* -delete &>/dev/null
