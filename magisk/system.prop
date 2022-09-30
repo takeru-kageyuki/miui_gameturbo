@@ -4,10 +4,6 @@
 
 # Enable MIUI Additional Features
 persist.sys.power.default.powermode=1
-persist.vendor.accelerate.charge=true
-persist.vendor.night.charge=true
-ro.vendor.media.video.frc.support=true
-ro.vendor.media.video.vpp.support=true
 ro.vendor.touchfeature.type=55
 
 # Disable MIUI Low RAM Flag
