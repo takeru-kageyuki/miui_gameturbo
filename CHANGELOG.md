@@ -1,5 +1,3 @@
 ## Changelog
 
-- `[Added]` Reverse Wireless Charging
-- `[Improved]` FRC & VPP unlocker methods
-- `[Misc]` Fixed some minor bugs
+- `[Fixed]` Security app can't be opened
