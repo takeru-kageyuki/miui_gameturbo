@@ -1,5 +1,5 @@
 ## Changelog
 
 - `[Added]` Reverse Wireless Charging
-- `[Misc]` Improved some unlocker methods
+- `[Improved]` FRC & VPP unlocker methods
 - `[Misc]` Fixed some minor bugs
