@@ -14,10 +14,6 @@ module_descriptions() {
     ui_print ""
     sleep 2
     ui_print "Notes:"
-    ui_print " • It is recommended to use MIUI 12.5+, as"
-    ui_print " • This module doesn't work in some MIUI 12."
-    ui_print ""
-    sleep 2
     ui_print " • If some features doesn't work or doesn't appear, it"
     ui_print " • Means that your device really doesn't support them."
     ui_print ""
