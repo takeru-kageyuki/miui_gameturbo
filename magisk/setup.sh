@@ -12,7 +12,7 @@ libadd() {
     local dir1=$(pm path $target | cut -d ":" -f 2 | sed "s:/[^/]*$::")
     mkdir -p $MODPATH$dir1
     
-    local dir2=$(pm path $target | sed "s/package://g")
+    local dir2=$(pm path $target | sed "s/package://")
     mv $MODPATH/lib/libadd.so $MODPATH$dir2
     
     local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
@@ -35,7 +35,7 @@ libmain() {
     local dir1=$(pm path $target | cut -d ":" -f 2 | sed "s:/[^/]*$::")
     mkdir -p $MODPATH$dir1
     
-    local dir2=$(pm path $target | sed "s/package://g")
+    local dir2=$(pm path $target | sed "s/package://")
     mv $MODPATH/lib/libmain.so $MODPATH$dir2
     
     local cache1=$(pm path $target | cut -d "." -f 1 | sed "s:.*/::")
